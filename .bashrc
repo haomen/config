@@ -3,10 +3,7 @@
 # for examples
 
 # If not running interactively, don't do anything
-case $- in
-    *i*) ;;
-      *) return;;
-esac
+[ -z "$PS1" ] && return
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
@@ -31,7 +28,7 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
@@ -85,7 +82,7 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -lF'
+alias ll='ls -ltrh --time-style=long-iso'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -105,15 +102,31 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
-  fi
 fi
-alias emacs="emacs -nw"
-export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_25
-export PATH=$PATH:./:$JAVA_HOME/bin
-alias cdev="cd /home/hao/Desktop/dev"
-zsh
+export GOPATH=/home/hao/godev
+export MYPATH=/home/hao/bin
+export PATH=$PATH:$GOPATH/bin:$MYPATH
+alias cdev='cd /t2/devs'
+umask 002
+killscreens () {
+    screen -ls | grep Detached | cut -d. -f1 | awk '{print $1}' | xargs kill
+}
+alias scp='scp -F ~/.ssh/config'
+alias ll='ls -ltrh --time-style=long-iso'
+alias less='less -N -r'
+export EDITOR="emacs"
+PS1='\e[1;37;41m[\h]\e[0;32m \w\e[m\e[1;36m$(__git_ps1 " (%s)")\e[1;33m\n\$\s ->\e[m '
+
+function screen(){
+    /usr/bin/script -q -c "/usr/bin/screen ${*}" /dev/null
+}
+
+#ENABLE COLOR FOR LESS
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R '
+#alias less='less -m -N -g -i -J --underline-special --SILENT'
+alias more='less'
+
+alias clang++='clang++ -std=c++11'
