@@ -1,0 +1,45 @@
+#tmp file from emacs
+*~
+\#*\#
+\#*
+.\#*
+
+#linked files
+*.o
+*.d
+*.dd
+*.linux
+a.out
+
+#log files
+log.*
+log
+
+#tasks
+*.tsk
+
+#bak files
+**/tags
+*.old
+*.out
+*.bak
+*.trap
+
+#diff for phabricator
+diff
+
+#python pyc
+*.pyc
+
+#arcconfig
+.arcconfig
+
+#data
+*.csv
+
+#vim tmp file
+*.swm
+*.swk
+*.swl
+*.swn
+*.swo
