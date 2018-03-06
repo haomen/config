@@ -14,3 +14,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias clang++='clang++ -std=c++11'
+alias less="less -N -r"
+alias emacs="emacs -nw --color"
+export TERM=xterm
+export EDITOR="emacs"
+
+alias gitree="git log --graph --oneline --decorate --all"
+#source ~/.git-promopt.sh
+PS1='\e[1;37;41m[\h]\e[0;32m \w\e[m\e[1;36m$(__git_ps1 " (%s)")\e[1;33m \D{%F %T}\n\$\s ->\e[m  '
+
