@@ -23,12 +23,6 @@
   (package-install 'use-package))
 (require 'use-package)
 
-;; ;; Vim mode
-;; (use-package evil
-;;   :ensure t
-;;   :config
-;;   (evil-mode 1))
-
 ;; Theme
 (use-package doom-themes
   :ensure t
@@ -41,7 +35,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (go-mode general which-key all-the-icons neotree projectile doom-themes use-package evil))))
+    (go-mode which-key all-the-icons neotree projectile doom-themes use-package evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -56,10 +50,6 @@
 ;; Show line number
 (setq linum-format "%4d | ")
 (global-linum-mode 1)
-
-;; Disable backup files
-(setq make-backupfiles nil)  ; stop creating backup~ files
-(setq auto-save-default nil) ; stop creating #autosave# files
 
 ;; Project management
 ;; Projectile
@@ -90,31 +80,6 @@
 
 ;; bracket auto-complete
 (setq electric-pair-preserve-balance nil)
-
-;; Custom keybinding
-(use-package general
-  :ensure t
-  :config (general-define-key
-  :states '(normal visual insert emacs)
-  :prefix "SPC"
-  :non-normal-prefix "M-SPC"
-  ;; "/"   '(counsel-rg :which-key "ripgrep") ; You'll need counsel package for this
-  "TAB" '(switch-to-prev-buffer :which-key "previous buffer")
-  "SPC" '(helm-M-x :which-key "M-x")
-  "pf"  '(helm-find-files :which-key "find files")
-  ;; Buffers
-  "bb"  '(helm-buffers-list :which-key "buffers list")
-  ;; Window
-  "wl"  '(windmove-right :which-key "move right")
-  "wh"  '(windmove-left :which-key "move left")
-  "wk"  '(windmove-up :which-key "move up")
-  "wj"  '(windmove-down :which-key "move bottom")
-  "w/"  '(split-window-right :which-key "split right")
-  "w-"  '(split-window-below :which-key "split bottom")
-  "wx"  '(delete-window :which-key "delete window")
-  ;; Others
-  "at"  '(ansi-term :which-key "open terminal")
-))
 
 ;; shortcuts
 (global-set-key (kbd "C-l") 'goto-line)
