@@ -21,5 +21,7 @@ export EDITOR="emacs"
 
 alias gitree="git log --graph --oneline --decorate --all"
 #source ~/.git-promopt.sh
-PS1='\e[1;37;41m[\h]\e[0;32m \w\e[m\e[1;36m$(__git_ps1 " (%s)")\e[1;33m \D{%F %T}\n\$\s ->\e[m  '
+#PS1='\e[1;37;41m[\h]\e[0;32m \w\e[m\e[1;36m$(__git_ps1 " (%s)")\e[1;33m \D{%F %T}\n\$\s ->\e[m  '
 
+# oh-my-posh config
+eval "$(oh-my-posh --init --shell bash --config ~/.oh-my-posh/themes/gmay.omp.json)"

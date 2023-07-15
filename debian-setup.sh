@@ -10,7 +10,8 @@ git clone https://github.com/haomen/config.git ~/git_config
 cp ~/git_config/.* ~/
 
 # install oh-my-zsh
-curl -s https://ohmyposh.dev/install.sh | bash -s -- -d ~/bin
+curl -s https://ohmyposh.dev/install.sh | bash -s
+git clone https://github.com/JanDeDobbeleer/oh-my-posh.git ~/.oh-my-posh
 
 # install python packages
 PYTHON_PACKAGES="python3-numpy python3-scipy python3-pandas python3-matplotlib"
