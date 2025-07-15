@@ -1,11 +1,11 @@
 ;;; emcas starts hers
 
 ;; my configs
-(electric-pair-mode)
+(electric-pair-mode 1)
 (setq electric-pair-preserve-balance nil)
 
 ;; show line number
-(global-linum-mode t)
+(global-display-line-numbers-mode t)
 (setq linum-format "%4d | ")
 
 (global-set-key (kbd "C-l") 'goto-line)

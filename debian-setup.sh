@@ -15,7 +15,7 @@ cp ~/git_config/.gitconfig ~/
 cp ~/git_config/.gitignore_global ~/
 
 # install oh-my-zsh
-curl -s https://ohmyposh.dev/install.sh | sudo bash -s
+curl -s https://ohmyposh.dev/install.sh |bash -s
 git clone https://github.com/JanDeDobbeleer/oh-my-posh.git ~/.oh-my-posh
 
 # install python packages
